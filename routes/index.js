@@ -36,7 +36,7 @@ router.get('/profile', function(req, res)
     }
     else
     {
-    	res.redirect("/");
+    	res.send("need to log in");
     }
 });
 

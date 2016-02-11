@@ -67,7 +67,7 @@ app.config([
 	        	}]
 	      	}
 
-      	});
+      	})
 
   		$stateProvider.state("test",
   		{
