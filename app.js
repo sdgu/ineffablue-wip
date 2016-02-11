@@ -10,6 +10,10 @@ var routes = require('./routes/index');
 var users = require('./routes/users');
 
 require('./config/passport');
+require("./models/user");
+require("./models/firstline");
+require("./models/line");
+
 
 var app = express();
 require('./env.js');

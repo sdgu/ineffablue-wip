@@ -14,8 +14,7 @@ router.get('/', function(req, res, next)
 //     res.render('login');
 //   });
 
-router.get('/login',
-  passport.authenticate('twitter'));
+router.get('/login', passport.authenticate('twitter'));
 
 router.get("/logout", function(req, res)
 {
@@ -29,12 +28,17 @@ router.get('/login/return',
     res.redirect('/');
   });
 
-router.get('/profile',
-  require('connect-ensure-login').ensureLoggedIn(),
-  function(req, res)
-  {
-    res.send(req.user);
-  });
+router.get('/profile', function(req, res)
+{
+    if (req.isAuthenticated())
+    {
+    	res.send(req.user);
+    }
+    else
+    {
+    	res.redirect("/");
+    }
+});
 
 
 module.exports = router;
